@@ -28,7 +28,7 @@ export default function AdminPanel({ onAdd }: { onAdd: (event: any) => void }) {
     <div className="bg-gray-800/70 p-6 rounded-xl border border-gray-700 mt-6">
       <h4 className="text-xl font-bold text-cyan-400 mb-4">Добавить новое событие</h4>
 
-      <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-4">
         <Input label="Название" value={title} onChange={(e) => setTitle(e.target.value)} />
         <Textarea
           label="Описание"
@@ -38,12 +38,14 @@ export default function AdminPanel({ onAdd }: { onAdd: (event: any) => void }) {
         <Input
           type="datetime-local"
           label="Начало (ЕКБ)"
+          placeholder=" " {/* 👈 Вот это исправление */}
           value={startTime}
           onChange={(e) => setStartTime(e.target.value)}
         />
         <Input
           type="datetime-local"
           label="Конец (ЕКБ)"
+          placeholder=" " {/* 👈 И вот это */}
           value={endTime}
           onChange={(e) => setEndTime(e.target.value)}
         />
