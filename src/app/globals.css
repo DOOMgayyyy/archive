@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: theme('colors.cyber.bg');
+  color: theme('colors.cyber.text');
+  font-family: theme('fontFamily.sans');
+}
