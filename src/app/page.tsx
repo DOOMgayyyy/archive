@@ -17,19 +17,19 @@ const participants = [
 ];
 
 export default function Home() {
-  //const { user, isAuthenticated, login, logout, loading } = useAuth();
+  const { user, isAuthenticated, login, logout, loading } = useAuth();
   const [menuOpen, setMenuOpen] = useState(false);
   //================================================================================
   // 👇 2. ВМЕСТО ЭТОГО, ЖЕСТКО ЗАДАЕМ АДМИНА ДЛЯ ТЕСТА:
-  const { logout } = useAuth(); // Можем вытащить только logout, он нам нужен для кнопки
-  const user = {
-    name: "Тестовый Админ",
-    email: "admin@test.com",
-    role: "admin", // 👈 Самое важное!
-    id: 1 
-  };
-  const isAuthenticated = true;
-  const loading = false;
+  // const { logout } = useAuth(); // Можем вытащить только logout, он нам нужен для кнопки
+  // const user = {
+  //   name: "Тестовый Админ",
+  //   email: "admin@test.com",
+  //   role: "admin", // 👈 Самое важное!
+  //   id: 1 
+  // };
+  // const isAuthenticated = true;
+  // const loading = false;
   //================================================================================
 
   return (

@@ -38,14 +38,14 @@ export default function AdminPanel({ onAdd }: { onAdd: (event: any) => void }) {
         <Input
           type="datetime-local"
           label="Начало (ЕКБ)"
-          placeholder=" " {/* 👈 Вот это исправление */}
+          placeholder=" " 
           value={startTime}
           onChange={(e) => setStartTime(e.target.value)}
         />
         <Input
           type="datetime-local"
           label="Конец (ЕКБ)"
-          placeholder=" " {/* 👈 И вот это */}
+          placeholder=" " 
           value={endTime}
           onChange={(e) => setEndTime(e.target.value)}
         />
