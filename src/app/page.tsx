@@ -8,7 +8,7 @@ import { Menu, X } from "lucide-react";
 import Events from "@/components/Events";
 import { useAuth } from "@/hooks/useAuth";
 import Link from "next/link";
-
+// кирил иди нахуй
 export default function Home() {
   const { user, isAuthenticated, login, logout, loading } = useAuth();
   const [menuOpen, setMenuOpen] = useState(false);
