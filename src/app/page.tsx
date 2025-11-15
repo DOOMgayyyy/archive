@@ -9,13 +9,6 @@ import Events from "@/components/Events";
 import { useAuth } from "@/hooks/useAuth";
 import Link from "next/link";
 
-
-const participants = [
-  { id: 1, name: "Коди Хэллфин", bio: "Художник и крафтер", avatar: "/assets/avatars/kodi.jpg" },
-  { id: 2, name: "Айко Тэн", bio: "DJ и диджитал-художник", avatar: "/assets/avatars/aiko.jpg" },
-  { id: 3, name: "Рей Куросава", bio: "Разработчик VR-игр", avatar: "/assets/avatars/rei.jpg" },
-];
-
 export default function Home() {
   const { user, isAuthenticated, login, logout, loading } = useAuth();
   const [menuOpen, setMenuOpen] = useState(false);
@@ -36,14 +29,25 @@ export default function Home() {
     <div className="bg-[#0f111b] text-gray-100 min-h-screen flex flex-col font-sans">
       {/* Header */}
       <header className="w-full flex justify-between items-center p-6 sm:p-8 border-b border-gray-800 relative z-50 bg-gradient-to-b from-[#0f111b]/90 to-[#1a1c2e]/50">
-        <h1 className="text-3xl sm:text-4xl font-bold tracking-wider text-cyan-400 drop-shadow-lg">
-          🌌 RFB Cyber 2026
+
+        <h1 className="text-3xl sm:text-4xl font-bold tracking-wider text-cyan-400 drop-shadow-lg flex items-center gap-3">
+          <Image
+            src="/furry_icon.png"
+            alt="Главная плюшка фестиваля"
+            width={50}
+            height={50}
+            className="object-cover object-center brightness-75 select-none"
+            draggable="false"
+            onDragStart={(e) => e.preventDefault()}
+          />
+          RFB 2026
         </h1>
 
         <nav className="hidden md:flex gap-6 text-sm font-medium items-center">
           <a href="#events" className="hover:text-pink-400 transition">События</a>
-          <a href="#participants" className="hover:text-pink-400 transition">Участники</a>
-          <a href="#tickets" className="hover:text-pink-400 transition">Билеты</a>
+          <Link href="/participants" className="hover:text-pink-400 transition">
+            Участники
+          </Link>          <a href="#tickets" className="hover:text-pink-400 transition">Билеты</a>
           {isAuthenticated && user ? (
             <>
               {user.role === "admin" && <a href="#admin" className="hover:text-pink-400 transition">Админка</a>}
@@ -120,7 +124,7 @@ export default function Home() {
           className="text-center px-6 z-10"
         >
           <h2 className="text-5xl sm:text-6xl font-extrabold text-cyan-400 drop-shadow-lg mb-4">
-            Добро пожаловать на RFB Cyber 2026!
+            Добро пожаловать на RFB 2026!
           </h2>
           <p className="text-lg sm:text-xl text-gray-300 drop-shadow-md max-w-2xl mx-auto">
             Музыка, кибер-косплей, VR-игры и уникальные технологии ждут тебя!
@@ -136,27 +140,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Participants Section */}
-      <section id="participants" className="px-6 sm:px-20 py-16 bg-gray-900/50">
-        <h3 className="text-3xl font-bold text-pink-400 mb-8">Участники</h3>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {participants.map((p) => (
-            <Card key={p.id} className="bg-gray-900/70 border border-gray-700 shadow-md p-4">
-              <div className="mb-4 flex justify-center">
-                <Image
-                  src={p.avatar}
-                  alt={p.name}
-                  width={120}
-                  height={120}
-                  className="rounded-full object-cover"
-                />
-              </div>
-              <h4 className="text-gray-100 font-bold mb-2">{p.name}</h4>
-              <p className="text-gray-300 text-sm">{p.bio}</p>
-            </Card>
-          ))}
-        </div>
-      </section>
 
       {/* Tickets Section */}
       <section id="tickets" className="px-6 sm:px-20 py-16 bg-gray-900/70 flex flex-col items-center gap-6">
@@ -179,7 +162,7 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="px-6 sm:px-20 py-12 border-t border-gray-800 flex flex-col items-center gap-4 bg-[#0f111b]/80">
-        <p className="text-gray-500">© 2026 RFB Cyber</p>
+        <p className="text-gray-500">© 2026 RFB</p>
         <div className="flex gap-6">
           <a href="https://vk.com/rusfurbal" className="hover:text-pink-400 transition">VK</a>
           <a href="#" className="hover:text-cyan-400 transition">Telegram</a>
